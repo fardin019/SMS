@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">MobileApp</string>
+    <string-array name="genders">Gender
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="course_cat">
+        <item>Core</item>
+        <item>Optional</item>
+    </string-array>
+
+    <string-array name="regions">
+        <item>Zanzibar</item>
+        <item>Dar es salaam</item>
+    </string-array>
+
+    <string-array name="districts">
+        <item>Mombasa</item>
+        <item>Kariakoo</item>
+    </string-array>
+
+    <string-array name="ward">
+        <item>Mshelilini Street</item>
+        <item>Congo Street</item>
+    </string-array>
+
+    <string name="reg_student_head">STUDENT REGISTRATION</string>
+    <string name="reg_staff_head">STAFF REGISTRATION</string>
+    <string name="reg_course_head">COURSE REGISTRATION</string>
+    <string name="prof_dash_head">DASHBOARD</string>
+    <string name="prof_course_head">COURSES</string>
+    <string name="prof_student_head">STUDENTS</string>
+    <string name="prof_staff_head">STAFFS</string>
+
+
+    <string name="first_name">First Name</string>
+    <string name="second_name">Middle Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="b_date">Birth Date</string>
+    <string name="gen">Gender</string>
+    <string name="email">Email</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="address_reg">Region</string>
+    <string name="address_dis">District</string>
+    <string name="address_ward">Ward</string>
+    <string name="reg_no">Registration Number</string>
+    <string name="username">Username</string>
+    <string name="pass">Password</string>
+
+    <string name="course_name">Course Name</string>
+    <string name="course_code">Course Code</string>
+    <string name="course_credits">Credits</string>
+    <string name="y_of_s">Year of Study</string>
+    <string name="semester">Semester</string>
+    <string name="course_cat">Category</string>
+    <string name="course_instructor">Instructor</string>
+
+    <string name="add_course">Courses</string>
+    <string name="add_staff">Staff</string>
+    <string name="add_students">Students</string>
+    <string name="log_out">Logout</string>
+    <string name="my_courses">My Courses</string>
+    <string name="reg_courses">Register Course</string>
+
+
+    <string name="reg_submit_btn">ADD</string>
+    <string name="course_submit_btn">ADD</string>
+    <string name="login_btn">LOGIN</string>
+
+
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>
