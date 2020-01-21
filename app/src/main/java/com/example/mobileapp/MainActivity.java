@@ -43,18 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
                 if (result == 1){
                     Toast.makeText(getApplicationContext(),"Welcome Admin",Toast.LENGTH_LONG).show();
-//                    Intent loginToAdmin = new Intent(MainActivity.this,AdminDash.class);
-//                    startActivity(loginToAdmin);
+                    Intent loginToAdmin = new Intent(MainActivity.this,AdminDash.class);
+                    startActivity(loginToAdmin);
+                    finish();
                 }
                 else if (result == 2){
                     Toast.makeText(getApplicationContext(),"Welcome Staff",Toast.LENGTH_LONG).show();
-//                    Intent loginToStaff = new Intent(MainActivity.this,StaffDash.class);
-//                    startActivity(loginToStaff);
+                    Intent loginToStaff = new Intent(MainActivity.this,StaffDash.class);
+                    startActivity(loginToStaff);
+                    finish();
                 }
                 else if (result == 3){
                     Toast.makeText(getApplicationContext(),"Welcome Student",Toast.LENGTH_LONG).show();
-//                    Intent loginToStudent = new Intent(MainActivity.this,StudentDash.class);
-//                    startActivity(loginToStudent);
+                    Intent loginToStudent = new Intent(MainActivity.this,StudentDash.class);
+                    startActivity(loginToStudent);
+                    finish();
                 }
                 else Toast.makeText(getApplicationContext(),"Invalid Username or Password",Toast.LENGTH_LONG).show();
             }

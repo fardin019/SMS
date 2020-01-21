@@ -125,26 +125,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //    Authenticate User
     public int authUser(String username, String password) {
         String[] ID = {"ID"};
-
-        String[] Role = {"Role"};
         SQLiteDatabase db = getReadableDatabase();
         String Selection = Username + " = ?" + " AND " + Password + " = ?";
-
-        String Selection2 = Username + " = ?";
         String[] SelectionArgs = {username, password};
         String[] SelectionArgs2 = {username};
 
         Cursor cursor = db.query(LOGIN_TABLE, ID, Selection, SelectionArgs, null, null, null);
 
-        Cursor cursor2 = db.query(LOGIN_TABLE,Role,Selection2,SelectionArgs2,null,null,null);
+        Cursor cursor2 = db.rawQuery("SELECT * FROM login_cred WHERE Username=?",SelectionArgs2);
 
 
 
+        String cursorText = "";
         int cursorCount = cursor.getCount();
 
+        if (cursor2.moveToFirst()){
+            do {
+                cursorText = cursor2.getString(2);
+            }
+            while (cursor2.moveToNext());
+        }
 
-//        int columnindex = cursor2.getColumnIndex("Role");
-        String cursorText = cursor2.getString(0);
 
         cursor.close();
         cursor2.close();
@@ -160,7 +161,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     return 3;
                 default:
                     return 0;
-//            return 1;
             }
 
         } else return 0;
