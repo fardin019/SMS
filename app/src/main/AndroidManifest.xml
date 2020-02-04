@@ -17,7 +17,8 @@
         <activity android:name=".DisplayStudents" />
         <activity android:name=".DisplayCourse" />
         <activity android:name=".StudentDash" />
-        <activity android:name=".AddCourse" />
+        <activity android:name=".AddCourse"
+            android:exported="true"/>
         <activity android:name=".StaffDash" />
         <activity
             android:name=".AddStaff"

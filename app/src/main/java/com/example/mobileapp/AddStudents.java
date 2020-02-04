@@ -115,7 +115,8 @@ public class AddStudents extends AppCompatActivity {
         student_ward_spinner = findViewById(R.id.student_ward_spinner);
 
 
-
+        student_reg_number.setText(databaseHelper.studentRegNo());
+        student_username.setText(databaseHelper.studentRegNo());
 
 
 

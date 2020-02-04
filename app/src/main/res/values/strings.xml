@@ -68,6 +68,11 @@
     <string name="course_submit_btn">ADD</string>
     <string name="login_btn">LOGIN</string>
 
+    <string-array name="semester">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>

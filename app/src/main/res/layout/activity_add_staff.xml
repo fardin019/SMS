@@ -120,6 +120,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/staff_gen_til"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10sp">
@@ -132,6 +133,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/staff_dist_til"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10sp">
@@ -144,6 +146,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/staff_ward_til"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10sp">
@@ -166,6 +169,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/reg_no" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/staff_course_til"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10sp">
+
+            <Spinner
+                android:id="@+id/staff_course_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -207,6 +222,8 @@
             android:paddingEnd="10sp"
             android:paddingBottom="15sp"
             android:text="@string/reg_submit_btn" />
+
+
 
     </LinearLayout>
 </ScrollView>

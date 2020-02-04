@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -29,7 +30,7 @@ public class AddStaff extends AppCompatActivity {
     TextInputEditText staff_fname, staff_mname, staff_lname, staff_email, staff_mobile, staff_bdate,
             staff_reg_number, staff_username, staff_pass;
 
-    Spinner staff_gen_spinner, staff_reg_spinner, staff_dist_spinner, staff_ward_spinner;
+    Spinner staff_gen_spinner, staff_reg_spinner, staff_dist_spinner, staff_ward_spinner, staff_course_spinner;
 
     Button send_btn;
 
@@ -116,10 +117,16 @@ public class AddStaff extends AppCompatActivity {
         staff_reg_spinner = findViewById(R.id.staff_reg_spinner);
         staff_dist_spinner = findViewById(R.id.staff_dist_spinner);
         staff_ward_spinner = findViewById(R.id.staff_ward_spinner);
+        staff_course_spinner = findViewById(R.id.staff_course_spinner);
 
 
+        staff_reg_number.setText(databaseHelper.staffRegNo());
+        staff_username.setText(databaseHelper.staffRegNo());
 
+        ArrayList<String> listOfCourses = databaseHelper.getCourses();
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,listOfCourses);
+        staff_course_spinner.setAdapter(adapter);
 
 
         send_btn = findViewById(R.id.submit_staff_form);

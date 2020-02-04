@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Pair;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -49,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(Username) REFERENCES REG_TABLE(REG_Number))";
 
         String courses = "CREATE TABLE " + COURSE_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,CourseCode TEXT UNIQUE,CourseName TEXT," +
-                "CourseCredits INTEGER,YearOfStudy INTEGER,Semester INTEGER)";
+                "CourseCredits INTEGER,YearOfStudy INTEGER,Semester INTEGER,Category TEXT)";
 
         String course_student = "CREATE TABLE " + COURSE_STUDENT_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "CourseCode TEXT,Student_REG TEXT," +
@@ -164,6 +166,93 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
 
         } else return 0;
+    }
+
+    public ArrayList<String> getStaffs(){
+        ArrayList<String> list = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String staffQuery = "SELECT FirstName FROM user_reg,login_cred WHERE role='Staff' AND login_cred.Username = user_reg.REG_Number";
+
+        Cursor cursor = db.rawQuery(staffQuery,null);
+
+        if (cursor.getCount() > 0){
+            while(cursor.moveToNext()){
+                String staffs = cursor.getString(cursor.getColumnIndex("FirstName"));
+                list.add(staffs);
+            }
+        }
+        cursor.close();
+        db.close();
+
+        return list;
+    }
+
+    public ArrayList<String> getCourses(){
+        ArrayList<String> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] column = {"CourseCode"};
+        Cursor cursor = db.query(COURSE_TABLE,column,null,null,null,null,null);
+
+        while(cursor.moveToNext()){
+            String courses = cursor.getString((cursor.getColumnIndex("CourseCode")));
+            list.add(courses);
+        }
+        cursor.close();
+        db.close();
+
+        return list;
+    }
+
+    //Insert courses
+    public boolean addCourse(String c_code, String c_name, String c_creds, String c_year, String c_sem, String c_type)
+
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+
+        values.put("CourseCode", c_code);
+        values.put("CourseName", c_name);
+        values.put("CourseCredits", c_creds);
+        values.put("YearOfStudy", c_year);
+        values.put("Semester", c_sem);
+        values.put("Category", c_type);
+
+
+        long result = db.insert(COURSE_TABLE, null, values);
+
+
+        db.close();
+
+        if (result != -1) return true;
+        else return false;
+    }
+
+    private String generateRegNo(){
+
+        SQLiteDatabase db = this.getReadableDatabase ();
+
+        Cursor cursor = db.rawQuery ("SELECT ID FROM " + REG_TABLE , null);
+        int idValue = (cursor.getCount ())+1;
+        String cc = String.valueOf (idValue);
+
+        cursor.close();
+
+        return "0000".substring (cc.length()) + cc;
+    }
+
+    public String studentRegNo(){
+
+        String reg = generateRegNo();
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
+        return year + "-04-" + reg;
+    }
+
+    public String staffRegNo(){
+        return generateRegNo();
     }
 }
 

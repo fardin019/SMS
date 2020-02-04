@@ -79,15 +79,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/course_inst_til"
+            android:id="@+id/course_sem_til"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10sp">
 
             <Spinner
-                android:id="@+id/course_inst_spin"
+                android:id="@+id/course_sem_spin"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:entries="@array/semester"
                 android:paddingStart="10sp"
                 android:paddingEnd="10sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -108,7 +109,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/send_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/course_submit_btn" />

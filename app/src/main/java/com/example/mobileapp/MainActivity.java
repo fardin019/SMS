@@ -3,6 +3,7 @@ package com.example.mobileapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button login_btn;
 
     DatabaseHelper databaseHelper;
+//    SharedPreferences sharedPre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +40,44 @@ public class MainActivity extends AppCompatActivity {
                 String user = Objects.requireNonNull(Username.getText()).toString();
                 String pass = Objects.requireNonNull(Password.getText()).toString();
 
+                Intent loginToAdmin = new Intent(MainActivity.this,AdminDash.class);
+                Intent loginToStaff = new Intent(MainActivity.this,StaffDash.class);
+                Intent loginToStudent = new Intent(MainActivity.this,StudentDash.class);
+
+//                sharedPre = getSharedPreferences("loginDetails",MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPre.edit();
+
+
+
                 int result;
                 result = databaseHelper.authUser(user,pass);
 
+
                 if (result == 1){
+
+//                    sharedPre.edit().putString("username",user).apply();
+//                    sharedPre.edit().putInt("role",result).apply();
+
+
                     Toast.makeText(getApplicationContext(),"Welcome Admin",Toast.LENGTH_LONG).show();
-                    Intent loginToAdmin = new Intent(MainActivity.this,AdminDash.class);
                     startActivity(loginToAdmin);
                     finish();
                 }
                 else if (result == 2){
+
+//                    sharedPre.edit().putString("username",user).apply();
+//                    sharedPre.edit().putInt("role",result).apply();
+
                     Toast.makeText(getApplicationContext(),"Welcome Staff",Toast.LENGTH_LONG).show();
-                    Intent loginToStaff = new Intent(MainActivity.this,StaffDash.class);
                     startActivity(loginToStaff);
                     finish();
                 }
                 else if (result == 3){
+
+//                    sharedPre.edit().putString("username",user).apply();
+//                    sharedPre.edit().putInt("role",result).apply();
+
                     Toast.makeText(getApplicationContext(),"Welcome Student",Toast.LENGTH_LONG).show();
-                    Intent loginToStudent = new Intent(MainActivity.this,StudentDash.class);
                     startActivity(loginToStudent);
                     finish();
                 }
@@ -63,4 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
