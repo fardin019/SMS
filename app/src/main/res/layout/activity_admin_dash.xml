@@ -46,15 +46,18 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/admin_courses"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:layout_rowWeight="1"
-            app:layout_columnWeight="1">
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -85,15 +88,18 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/admin_students"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:layout_rowWeight="1"
-            app:layout_columnWeight="1">
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -124,15 +130,18 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/admin_staffs"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:layout_rowWeight="1"
-            app:layout_columnWeight="1">
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -163,15 +172,18 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/admin_logout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:layout_rowWeight="1"
-            app:layout_columnWeight="1">
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"

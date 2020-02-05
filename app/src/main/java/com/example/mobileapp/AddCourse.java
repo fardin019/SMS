@@ -60,8 +60,7 @@ public class AddCourse extends AppCompatActivity {
                 String cat_value = course_cat_spin.getSelectedItem().toString().trim();
                 String sem_value = course_sem_spin.getSelectedItem().toString().trim();
 
-                if (!(c_name.isEmpty() && c_code.isEmpty() && c_creds.isEmpty() && c_yos.isEmpty()
-                    && cat_value.isEmpty())){
+                if (!(c_name.isEmpty() && c_code.isEmpty() && c_creds.isEmpty() && c_yos.isEmpty())){
 
                     boolean res = databaseHelper.addCourse(c_code,c_name,c_creds,c_yos,sem_value,cat_value);
 

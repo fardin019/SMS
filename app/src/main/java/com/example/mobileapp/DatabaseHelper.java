@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String Ward = "Ward";
 
     DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
 
     }
 
@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(Username) REFERENCES REG_TABLE(REG_Number))";
 
         String courses = "CREATE TABLE " + COURSE_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,CourseCode TEXT UNIQUE,CourseName TEXT," +
-                "CourseCredits INTEGER,YearOfStudy INTEGER,Semester INTEGER,Category TEXT)";
+                "CourseCategory TEXT,CourseCredits INTEGER,YearOfStudy INTEGER,Semester INTEGER)";
 
         String course_student = "CREATE TABLE " + COURSE_STUDENT_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "CourseCode TEXT,Student_REG TEXT," +
@@ -218,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("CourseCredits", c_creds);
         values.put("YearOfStudy", c_year);
         values.put("Semester", c_sem);
-        values.put("Category", c_type);
+        values.put("CourseCategory", c_type);
 
 
         long result = db.insert(COURSE_TABLE, null, values);
@@ -254,5 +254,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String staffRegNo(){
         return generateRegNo();
     }
+
 }
 
