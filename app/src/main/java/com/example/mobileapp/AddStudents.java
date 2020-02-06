@@ -117,6 +117,8 @@ public class AddStudents extends AppCompatActivity {
 
         student_reg_number.setText(databaseHelper.studentRegNo());
         student_username.setText(databaseHelper.studentRegNo());
+        String Password = "@coictapp";
+        student_pass.setText(Password);
 
 
 

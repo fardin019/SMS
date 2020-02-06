@@ -122,6 +122,8 @@ public class AddStaff extends AppCompatActivity {
 
         staff_reg_number.setText(databaseHelper.staffRegNo());
         staff_username.setText(databaseHelper.staffRegNo());
+        String Password = "@coictapp";
+        staff_pass.setText(Password);
 
         ArrayList<String> listOfCourses = databaseHelper.getCourses();
 
@@ -174,8 +176,10 @@ public class AddStaff extends AppCompatActivity {
                         Objects.requireNonNull(staff_mobile.getText()).clear();
                         Objects.requireNonNull(staff_bdate.getText()).clear();
                         Objects.requireNonNull(staff_reg_number.getText()).clear();
-                        Objects.requireNonNull(staff_pass.getText()).clear();
                         Objects.requireNonNull(staff_username.getText()).clear();
+
+                        staff_reg_number.setText(databaseHelper.staffRegNo());
+                        staff_username.setText(databaseHelper.staffRegNo());
                     }
                     else Toast.makeText(getApplicationContext(),"Failed to add new Staff.",Toast.LENGTH_LONG).show();
 

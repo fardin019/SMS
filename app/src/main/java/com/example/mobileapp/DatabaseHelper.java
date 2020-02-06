@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "school_database";
@@ -37,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String Ward = "Ward";
 
     DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 1);
 
     }
 
@@ -253,6 +254,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String staffRegNo(){
         return generateRegNo();
+    }
+
+    public List<Student> viewAllStudents(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Student> students = new ArrayList<> ();
+
+        Cursor cursor = db.rawQuery ("SELECT * FROM " + REG_TABLE,null);
+
+
+
+
+
+            while (cursor.moveToNext()){
+                Student student = new Student ();
+                student.setUsername(cursor.getString(1));
+                student.setFirst_name(cursor.getString(2));
+                student.setMiddle_name(cursor.getString(3));
+                student.setLast_name(cursor.getString(4));
+
+
+
+                students.add(student);
+            }
+
+
+
+        cursor.close();
+        db.close();
+
+        return students;
     }
 
 }

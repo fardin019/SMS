@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayStudents extends AppCompatActivity {
+public class DisplayStaffs extends AppCompatActivity {
 
     DatabaseHelper db;
     List<Student> students;
@@ -24,23 +24,23 @@ public class DisplayStudents extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_students);
+        setContentView(R.layout.activity_display_staffs);
 
         db = new DatabaseHelper (this);
-        students = new ArrayList<>();
+        students=new ArrayList<>();
 
         students.addAll (db.viewAllStudents ());
         RecyclerView recyclerView = this.findViewById (R.id.student_cycle);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        studentAdapter = new studentAdapter(this,students);
-        recyclerView.setAdapter(studentAdapter);
+        recyclerView.setLayoutManager (new LinearLayoutManager(this));
+        studentAdapter = new studentAdapter (this,students);
+        recyclerView.setAdapter (studentAdapter);
 
         add_btn = findViewById(R.id.add_btn);
 
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DisplayStudents.this,AddStudents.class);
+                Intent intent = new Intent(DisplayStaffs.this,AddStudents.class);
                 startActivity(intent);
             }
         });
