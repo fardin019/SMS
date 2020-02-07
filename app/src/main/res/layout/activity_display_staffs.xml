@@ -32,7 +32,7 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/student_cycle"
+            android:id="@+id/staff_cycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

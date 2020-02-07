@@ -16,8 +16,8 @@ import java.util.List;
 public class DisplayStaffs extends AppCompatActivity {
 
     DatabaseHelper db;
-    List<Student> students;
-    studentAdapter studentAdapter;
+    List<Staffs> staffs;
+    staffAdapter staffAdapter;
 
     FloatingActionButton add_btn;
 
@@ -27,20 +27,20 @@ public class DisplayStaffs extends AppCompatActivity {
         setContentView(R.layout.activity_display_staffs);
 
         db = new DatabaseHelper (this);
-        students=new ArrayList<>();
+        staffs=new ArrayList<>();
 
-        students.addAll (db.viewAllStudents ());
-        RecyclerView recyclerView = this.findViewById (R.id.student_cycle);
+        staffs.addAll (db.viewAllStaffs ());
+        RecyclerView recyclerView = this.findViewById (R.id.staff_cycle);
         recyclerView.setLayoutManager (new LinearLayoutManager(this));
-        studentAdapter = new studentAdapter (this,students);
-        recyclerView.setAdapter (studentAdapter);
+        staffAdapter = new staffAdapter (this,staffs);
+        recyclerView.setAdapter (staffAdapter);
 
         add_btn = findViewById(R.id.add_btn);
 
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DisplayStaffs.this,AddStudents.class);
+                Intent intent = new Intent(DisplayStaffs.this,AddStaff.class);
                 startActivity(intent);
             }
         });

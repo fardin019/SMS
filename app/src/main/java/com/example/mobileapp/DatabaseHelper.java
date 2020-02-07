@@ -261,7 +261,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         List<Student> students = new ArrayList<> ();
 
-        Cursor cursor = db.rawQuery ("SELECT * FROM " + REG_TABLE,null);
+        String query = "select * from user_reg,login_cred where user_reg.reg_number = login_cred.username and login_cred.role='Student'";
+
+        Cursor cursor = db.rawQuery (query,null);
 
 
 
@@ -287,5 +289,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return students;
     }
 
-}
+    public List<Staffs> viewAllStaffs(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Staffs> staffs = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + COURSE_STAFF_TABLE,null);
+
+        String query = "select firstname,lastname from user_reg,login_cred where user_reg.reg_number = login_cred.username and login_cred.role='Staff'";
+        Cursor cursor2 = db.rawQuery(query,null);
+
+            while(cursor.moveToNext()){
+                Staffs staff  = new Staffs();
+                staff.setUsername(cursor.getString(2));
+                staff.setCourse(cursor.getString(1));
+
+                while (cursor2.moveToNext()){
+
+                    staff.setFirst_name(cursor2.getString(0));
+                    staff.setLast_name(cursor2.getString(1));
+                }
+
+            }
+
+            cursor.close();
+            cursor2.close();
+            db.close();
+
+            return staffs;
+
+        }
+    }
+
+
 
