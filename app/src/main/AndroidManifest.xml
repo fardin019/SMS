@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DisplayStaffs"
-            android:exported="true"></activity>
+        <activity android:name=".DisplayCourses"></activity>
+        <activity
+            android:name=".DisplayStaffs"
+            android:exported="true" />
         <activity
             android:name=".AddStudents"
             android:exported="true" />
-        <activity android:name=".DisplayStudents"
-            android:exported="true"/>
+        <activity
+            android:name=".DisplayStudents"
+            android:exported="true" />
         <activity android:name=".DisplayCourse" />
         <activity android:name=".StudentDash" />
         <activity

@@ -52,7 +52,6 @@ public class staffAdapter extends RecyclerView.Adapter<staffAdapter.staffsHolder
     public void onBindViewHolder(@NonNull staffsHolder holder, int position) {
 
         Staffs staff = staffs.get(position);
-
         String space = " ";
         String full_name = staff.getFirst_name() + space + staff.getLast_name();
 

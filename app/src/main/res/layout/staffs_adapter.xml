@@ -7,7 +7,7 @@
     android:paddingBottom="2dp">
 
     <TextView
-        android:id="@+id/s_name"
+        android:id="@+id/c_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -15,7 +15,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/s_course"
+        android:id="@+id/c_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="220dp"
@@ -24,7 +24,7 @@
 
 
     <TextView
-        android:id="@+id/s_username"
+        android:id="@+id/c_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

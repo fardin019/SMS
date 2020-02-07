@@ -308,6 +308,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                     staff.setFirst_name(cursor2.getString(0));
                     staff.setLast_name(cursor2.getString(1));
+
+                    staffs.add(staff);
                 }
 
             }
@@ -319,6 +321,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return staffs;
 
         }
+
+    public List<Courses> viewAllCourses(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<Courses> courses = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + COURSE_TABLE,null);
+
+        while(cursor.moveToNext()){
+            Courses course = new Courses();
+            course.setCourseCode(cursor.getColumnName(1));
+            course.setCourseName(cursor.getColumnName(2));
+            course.setCourseCategory(cursor.getColumnName(3));
+
+            courses.add(course);
+        }
+
+        cursor.close();
+        db.close();
+
+        return courses;
+
+
+    }
+
     }
 
 
